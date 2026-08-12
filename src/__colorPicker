@@ -1,0 +1,27 @@
+Navbar
+
+Background: #FFFFFF
+Logo: #3B2416 + #F97316
+Active link: #F97316
+
+Hero Section
+
+Background: #FFF7ED
+Heading: #3B2416
+Highlight text: #F97316
+Main button: #F97316
+Button hover: #EA580C
+
+Food Cards
+
+Background: #FFFFFF
+Product name: #3B2416
+Price: #F97316
+Description: #6B7280
+Card shadow: light gray
+
+Footer
+
+Background: #3B2416
+Text: #FFFFFF
+Links/icons: #FB923C
