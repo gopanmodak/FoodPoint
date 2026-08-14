@@ -47,7 +47,7 @@ const Register = () => {
     console.log(userInformation)
   }
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mt-10 max-w-7xl mx-auto gap-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 mt-10 max-w-7xl mx-auto gap-10 p-10">
       <div className="border-orange-400 bg-red-400 flex justify-center rounded-2xl">
         <img src={register} alt="register-images" className="h-132" />
       </div>

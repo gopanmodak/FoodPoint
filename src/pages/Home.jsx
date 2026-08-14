@@ -1,6 +1,6 @@
 import { Fade, Slide } from "react-awesome-reveal";
 import { GiCirclingFish, GiMeal } from "react-icons/gi";
-import { PiCoffeeFill } from "react-icons/pi";
+import { PiBowlFoodLight, PiCoffeeFill } from "react-icons/pi";
 import { TbMeat } from "react-icons/tb";
 
 import about1 from "../assets/about-ourstory.webp";
@@ -9,8 +9,34 @@ import RestaurantImages_1 from "../assets/Restaurant-1.webp";
 import RestaurantImages_2 from "../assets/Restaurant-2.webp";
 import RestaurantImages_3 from "../assets/Restaurant-3.webp";
 import RestaurantImages_4 from "../assets/Restaurant-4.webp";
+import { LiaHotTubSolid } from "react-icons/lia";
+import { RiDrinksLine } from "react-icons/ri";
+import { MdOutlineFastfood } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const Home = () => {
+  const containerVariant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  };
+
+  const itemVariant = {
+    hidden: {
+      opacity: 0,
+      y: 100,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
   return (
     <div className="p-3">
       {/*  Banner images */}
@@ -42,63 +68,12 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 4card section */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 my-30">
-        <div className="flex flex-col gap-3">
-          <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
-            {" "}
-            <GiMeal />{" "}
-          </span>
-          <h3 className="text-orange-500 text-2xl">Enjoy Eating</h3>
-          <p className="text-start text-gray-500">
-            A gentle stream flows softly, weaving joy, flavor, and warmth into
-            every shared bite together.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
-            {" "}
-            <GiCirclingFish />{" "}
-          </span>
-          <h3 className="text-orange-500 text-2xl">Fresh Sea Foods</h3>
-          <p className="text-start text-gray-500 ">
-            Ocean waves whisper freshness, carrying taste from deep waters,
-            delivering nature’s gift to every shore.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
-            {" "}
-            <PiCoffeeFill />{" "}
-          </span>
-          <h3 className="text-orange-500 text-2xl">Cup of Coffees</h3>
-          <p className="text-start text-gray-500">
-            Morning rivers pour warmth, aroma rises gently, each sip awakens
-            senses, weaving comfort and joy.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
-            {" "}
-            <TbMeat />{" "}
-          </span>
-          <h3 className="text-orange-500 text-2xl">Meat Eaters</h3>
-          <p className="text-start text-gray-500">
-            A rustic brook delivers flavor, carrying strength and tradition,
-            weaving hearty delights into every feast.
-          </p>
-        </div>
-      </div>
-
       {/* about our story */}
 
       <div className="grid grid-cols-2 gap-10 my-40">
         <div className="flex flex-col justify-center items-start gap-5">
           <Fade delay={1000} cascade damping={0.5}>
-            <h2 className="text-3xl font-bold text-orange-500">
+            <h2 className="text-3xl font-bold text-orange-500 uppercase">
               About Our Story
             </h2>
             <p className="text-gray-700">
@@ -117,7 +92,11 @@ const Home = () => {
 
         <div className="flex justify-center items-center">
           <Slide>
-            <img src={about1} alt="" className="h-84 object-cover rounded-2xl" />
+            <img
+              src={about1}
+              alt=""
+              className="h-84 object-cover rounded-2xl"
+            />
           </Slide>
         </div>
       </div>
@@ -152,47 +131,161 @@ const Home = () => {
             timeless meaning.
           </p>
         </div>
-<Fade damping={0.5} cascade delay={1000}>
-
-  
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 mt-10">
-          {/* Left side image */}
-          <div className="col-span-3">
-            <img
-              src={RestaurantImages_1}
-              alt="Restaurant 1"
-              className="w-full h-148 object-cover rounded-lg"
-            />
-          </div>
-
-          {/* Middle stacked images */}
-          <div className="col-span-6 flex flex-col gap-5">
-            <div>
+        <Fade damping={0.5} cascade delay={1000}>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 mt-10">
+            {/* Left side image */}
+            <div className="col-span-3">
               <img
-                src={RestaurantImages_2}
-                alt="Restaurant 2"
-                className="w-full h-72 rounded-lg object-cover"
+                src={RestaurantImages_1}
+                alt="Restaurant 1"
+                className="w-full h-148 object-cover rounded-lg"
               />
             </div>
-            <div>
+
+            {/* Middle stacked images */}
+            <div className="col-span-6 flex flex-col gap-5">
+              <div>
+                <img
+                  src={RestaurantImages_2}
+                  alt="Restaurant 2"
+                  className="w-full h-72 rounded-lg object-cover"
+                />
+              </div>
+              <div>
+                <img
+                  src={RestaurantImages_3}
+                  alt="Restaurant 3"
+                  className="w-full h-72 rounded-lg object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Right side image */}
+            <div className="col-span-3">
               <img
-                src={RestaurantImages_3}
-                alt="Restaurant 3"
-                className="w-full h-72 rounded-lg object-cover"
+                src={RestaurantImages_4}
+                alt="Restaurant 4"
+                className="w-full object-cover h-148 rounded-lg"
               />
             </div>
           </div>
+        </Fade>
+      </div>
 
-          {/* Right side image */}
-          <div className="col-span-3">
-            <img
-              src={RestaurantImages_4}
-              alt="Restaurant 4"
-              className="w-full object-cover h-148 rounded-lg"
-            />
-          </div>
-        </div>
-</Fade>
+      {/* others services */}
+      <div className="my-20 ">
+        <h2 className="text-3xl text-orange-500 uppercase font-bold text-center mb-4">
+          Other Services
+        </h2>
+        <p className="text-gray-600 text-center">
+          {" "}
+          Enhancing Your Experience with More Options
+        </p>
+
+        {/* 4card section */}
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-4 gap-10 my-20"
+          variants={containerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <motion.div className="flex flex-col gap-3" variants={itemVariant}>
+            <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
+              {" "}
+              <GiMeal />{" "}
+            </span>
+            <h3 className="text-orange-500 text-2xl">Enjoy Eating</h3>
+            <p className="text-start text-gray-500">
+              A gentle stream flows softly, weaving joy, flavor, and warmth into
+              every shared bite together.
+            </p>
+          </motion.div>
+
+          <motion.div className="flex flex-col gap-3" variants={itemVariant}>
+            <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
+              {" "}
+              <GiCirclingFish />{" "}
+            </span>
+            <h3 className="text-orange-500 text-2xl">Fresh Sea Foods</h3>
+            <p className="text-start text-gray-500 ">
+              Ocean waves whisper freshness, carrying taste from deep waters,
+              delivering nature’s gift to every shore.
+            </p>
+          </motion.div>
+
+          <motion.div className="flex flex-col gap-3" variants={itemVariant}>
+            <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
+              {" "}
+              <PiCoffeeFill />{" "}
+            </span>
+            <h3 className="text-orange-500 text-2xl">Cup of Coffees</h3>
+            <p className="text-start text-gray-500">
+              Morning rivers pour warmth, aroma rises gently, each sip awakens
+              senses, weaving comfort and joy.
+            </p>
+          </motion.div>
+
+          <motion.div className="flex flex-col gap-3" variants={itemVariant}>
+            <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
+              {" "}
+              <TbMeat />{" "}
+            </span>
+            <h3 className="text-orange-500 text-2xl">Meat Eaters</h3>
+            <p className="text-start text-gray-500">
+              A rustic brook delivers flavor, carrying strength and tradition,
+              weaving hearty delights into every feast.
+            </p>
+          </motion.div>
+
+          <motion.div className="flex flex-col gap-3" variants={itemVariant}>
+            <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
+              {" "}
+              <LiaHotTubSolid />{" "}
+            </span>
+            <h3 className="text-orange-500 text-2xl">Free Hot Soup</h3>
+            <p className="text-start text-gray-500">
+              Warm, comforting soup served fresh, crafted with love to bring
+              flavor, joy, and nourishment to every guest.
+            </p>
+          </motion.div>
+
+          <motion.div className="flex flex-col gap-3" variants={itemVariant}>
+            <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
+              {" "}
+              <RiDrinksLine />{" "}
+            </span>
+            <h3 className="text-orange-500 text-2xl">Drinks & Beverages</h3>
+            <p className="text-start text-gray-500">
+              Refreshing drinks and crafted beverages, blending taste and style
+              to keep you energized, hydrated, and delighted always.
+            </p>
+          </motion.div>
+
+          <motion.div className="flex flex-col gap-3" variants={itemVariant}>
+            <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
+              {" "}
+              <MdOutlineFastfood />{" "}
+            </span>
+            <h3 className="text-orange-500 text-2xl">Healthy Smoothies </h3>
+            <p className="text-start text-gray-500">
+              Fresh fruits blended into nourishing smoothies, offering energy,
+              flavor, and wellness in every refreshing sip you enjoy.
+            </p>
+          </motion.div>
+
+          <motion.div className="flex flex-col gap-3" variants={itemVariant}>
+            <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
+              {" "}
+              <PiBowlFoodLight />{" "}
+            </span>
+            <h3 className="text-orange-500 text-2xl">Sweet Desserts</h3>
+            <p className="text-start text-gray-500">
+              Indulge in delightful desserts, crafted with care, blending
+              sweetness and artistry to make every bite memorable.
+            </p>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
