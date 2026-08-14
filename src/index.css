@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap');
 @import "tailwindcss";
 @import "daisyui/daisyui.css";
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap');
-
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
+}
+.link:hover {
+  color: #12068e;
+  border-bottom: 2px solid #6c6b77;
+}
+
+.link:active {
+  color: #a71212;
+  border-bottom: 2px solid #6c6b77;
 }
