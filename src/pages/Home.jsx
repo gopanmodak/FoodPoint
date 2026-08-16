@@ -13,6 +13,7 @@ import { LiaHotTubSolid } from "react-icons/lia";
 import { RiDrinksLine } from "react-icons/ri";
 import { MdOutlineFastfood } from "react-icons/md";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const containerVariant = {
@@ -56,7 +57,7 @@ const Home = () => {
               <h1 className="mb-5 text-5xl font-bold">Delicious Recipes</h1>
             </Slide>
 
-            <Fade delay={1000} cascade damping={0.5}>
+            <Fade delay={1000} cascade damping={0.1}>
               <p className="mb-5 text-start">
                 inappropriate behavior is often laughed off as “boys will be
                 boys,” women face higher conduct standards especially in the
@@ -84,9 +85,9 @@ const Home = () => {
               desire to share something meaningful with the world.
             </p>
 
-            <button className="btn bg-orange-500 text-white hover:bg-white hover:text-orange-500 hover:shadow-amber-500">
-              View Full Menu
-            </button>
+            <Link to='/about-us' className="btn bg-orange-500 text-white hover:bg-white hover:text-orange-500 hover:shadow-amber-500">
+              Read More
+            </Link>
           </Fade>
         </div>
 
@@ -184,7 +185,7 @@ const Home = () => {
 
         {/* 4card section */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-10 my-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 my-20"
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div className="bg-[#482e1e] text-white ">
@@ -11,7 +13,7 @@ const Footer = () => {
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
-          <a className="hover:text-[#FB923C]">About us</a>
+          <Link to='/about-us' className="hover:text-[#FB923C]">About us</Link>
           <a className="hover:text-[#FB923C]">Contact</a>
           <a className="hover:text-[#FB923C]">Jobs</a>
           <a className="hover:text-[#FB923C]">Press kit</a>

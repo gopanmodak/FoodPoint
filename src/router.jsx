@@ -10,6 +10,7 @@ import Menu from "./pages/Menu";
 import Reservation from "./pages/Reservation";
 import Order from "./pages/Order";
 import Cart from "./pages/Cart";
+import AboutUs from "./pages/AboutUs";
 
 export const router = createBrowserRouter ([
   {
@@ -43,7 +44,10 @@ export const router = createBrowserRouter ([
       {
         path: 'register',
         element:<Register/>
-      },
+      },{
+        path: 'about-us',
+        element: <AboutUs/>
+      }
 
     ]
   },
