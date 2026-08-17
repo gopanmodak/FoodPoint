@@ -97,7 +97,7 @@ const Reservation = () => {
 
           {/* Card header strip */}
           <div className="bg-liear-to-r from-orange-500 to-amber-500 px-8 py-7 md:px-12">
-            <p className="text-orange-100 uppercase tracking-[0.25em] text-xs font-semibold mb-1">
+            <p className="text-orange-400 uppercase tracking-[0.25em] text-xs font-semibold mb-1">
               Reservation Form
             </p>
             <h2 className="text-white text-2xl md:text-3xl font-bold">

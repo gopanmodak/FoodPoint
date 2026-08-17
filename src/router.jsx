@@ -11,6 +11,10 @@ import Reservation from "./pages/Reservation";
 import Order from "./pages/Order";
 import Cart from "./pages/Cart";
 import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
+import CookiePolicy from "./pages/CookiePolicy";
+import TermsOfUse from "./pages/TermsOfUse";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 export const router = createBrowserRouter ([
   {
@@ -47,7 +51,13 @@ export const router = createBrowserRouter ([
       },{
         path: 'about-us',
         element: <AboutUs/>
-      }
+      },{
+        path: 'contact',
+        element: <Contact/>
+      },
+    {path: "cookie-policy",element: <CookiePolicy/>},
+    {path: "terms",element: <TermsOfUse/>},
+    {path: "privacy",element: <PrivacyPolicy/>}
 
     ]
   },

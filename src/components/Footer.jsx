@@ -14,15 +14,15 @@ const Footer = () => {
         <nav>
           <h6 className="footer-title">Company</h6>
           <Link to='/about-us' className="hover:text-[#FB923C]">About us</Link>
-          <a className="hover:text-[#FB923C]">Contact</a>
+          <Link to='/contact' className="hover:text-[#FB923C]">Contact</Link>
           <a className="hover:text-[#FB923C]">Jobs</a>
           <a className="hover:text-[#FB923C]">Press kit</a>
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>
-          <a className="hover:text-[#FB923C]">Terms of use</a>
-          <a className="hover:text-[#FB923C]">Privacy policy</a>
-          <a className="hover:text-[#FB923C]">Cookie policy</a>
+          <Link to='/terms' className="hover:text-[#FB923C]">Terms of Use</Link>
+          <Link to='/privacy' className="hover:text-[#FB923C]">Privacy policy</Link>
+          <Link to='/cookie-policy' className="hover:text-[#FB923C]">Cookie policy</Link>
         </nav>
         <form>
           <h6 className="footer-title">Newsletter</h6>

@@ -53,11 +53,11 @@ const Home = () => {
 
         <div className="hero-content text-neutral-content text-start">
           <div className="max-w-md flex flex-col gap-2">
-            <Slide>
+            <Slide triggerOnce>
               <h1 className="mb-5 text-5xl font-bold">Delicious Recipes</h1>
             </Slide>
 
-            <Fade delay={1000} cascade damping={0.1}>
+            <Fade delay={1000} cascade damping={0.1} triggerOnce>
               <p className="mb-5 text-start">
                 inappropriate behavior is often laughed off as “boys will be
                 boys,” women face higher conduct standards especially in the
@@ -73,7 +73,7 @@ const Home = () => {
 
       <div className="grid grid-cols-2 gap-10 my-40">
         <div className="flex flex-col justify-center items-start gap-5">
-          <Fade delay={1000} cascade damping={0.5}>
+          <Fade delay={1000} cascade damping={0.5} triggerOnce>
             <h2 className="text-3xl font-bold text-orange-500 uppercase">
               About Our Story
             </h2>
@@ -85,14 +85,17 @@ const Home = () => {
               desire to share something meaningful with the world.
             </p>
 
-            <Link to='/about-us' className="btn bg-orange-500 text-white hover:bg-white hover:text-orange-500 hover:shadow-amber-500">
+            <Link
+              to="/about-us"
+              className="btn bg-orange-500 text-white hover:bg-white hover:text-orange-500 hover:shadow-amber-500"
+            >
               Read More
             </Link>
           </Fade>
         </div>
 
         <div className="flex justify-center items-center">
-          <Slide>
+          <Slide triggerOnce>
             <img
               src={about1}
               alt=""
@@ -288,6 +291,30 @@ const Home = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Home footer */}
+
+      <section className="px-5 md:px-10 py-16">
+        <div className="max-w-6xl mx-auto bg-orange-500 rounded-3xl py-12 px-6 text-center text-white">
+          <Fade triggerOnce>
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Ready For A Delicious Experience?
+            </h2>
+
+            <p className="mt-4 text-orange-50 max-w-xl mx-auto">
+              Visit FoodPoint and enjoy delicious food, warm hospitality, and
+              unforgettable moments.
+            </p>
+
+            <Link
+              to="/menu"
+              className="btn bg-white text-orange-500 hover:bg-gray-100 border-none rounded-full px-8 mt-7"
+            >
+              Explore Our Menu
+            </Link>
+          </Fade>
+        </div>
+      </section>
     </div>
   );
 };
