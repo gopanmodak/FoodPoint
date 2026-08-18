@@ -1,70 +1,50 @@
 import { useQuery } from "@tanstack/react-query";
+import BestFoodCard from "../components/BestFoodCard";
+import { Fade } from "react-awesome-reveal";
+import { useNavigate } from "react-router-dom";
 
 const BestFood = () => {
-  const {
-    data: foods = [],
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
+  const navigate = useNavigate();
+  const { data, isLoading, error } = useQuery({
     queryKey: ["best-food"],
-
     queryFn: async () => {
-      const response = await fetch(
-        "http://localhost:3000/bestfood"
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch food");
-      }
-
-      return response.json();
+      const response = await fetch("http://localhost:3000/bestfood");
+      return await response.json();
     },
   });
-  console.log(foods)
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center py-20">
-        <span className="loading loading-spinner loading-lg text-orange-500"></span>
-      </div>
-    );
-  }
-
-  if (isError) {
-    return (
-      <div className="text-center py-10 text-red-500">
-        {error.message}
-      </div>
-    );
-  }
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-      {foods.map((food, index) => (
-        <div
-          key={food._id || food.idMeal || index}
-          className="bg-white rounded-2xl shadow-md overflow-hidden"
-        >
-          <img
-            src={food.image || food.strMealThumb}
-            alt={food.name || food.strMeal}
-            className="w-full h-60 object-cover"
-          />
-
-          <div className="p-5">
-            <h2 className="text-xl font-bold text-gray-800">
-              {food.name || food.strMeal}
-            </h2>
-
-            {food.price && (
-              <p className="text-orange-500 font-bold mt-2">
-                ৳{food.price}
-              </p>
-            )}
-          </div>
+      <div>
+        <div className="flex items-center justify-center space-x-2 pt-15">
+          <div className="w-4 h-4 rounded-full animate-pulse bg-orange-600"></div>
+          <div className="w-4 h-4 rounded-full animate-pulse bg-orange-600"></div>
+          <div className="w-4 h-4 rounded-full animate-pulse bg-orange-600"></div>
         </div>
-      ))}
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center pt-15">
+        <p className="text-orange-400">Data Not Found</p>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-5 my-15">
+        {data.slice(0,8).map((item) => (
+           <Fade direction="up" cascade damping={0.3} triggerOnce> 
+          <BestFoodCard item={item} key={item.idMeal} />
+          </Fade>
+        ))}
+      </div>
+
+      <div className="flex justify-center items-center">
+        <button className="btn btn-warning text-white" onClick={()=> navigate('/best-food')}>View All</button>
+      </div>
     </div>
   );
 };

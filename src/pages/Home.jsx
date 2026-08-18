@@ -108,7 +108,7 @@ const Home = () => {
       {/*    find your food */}
 
       <div className="flex flex-col justify-center items-center gap-5">
-        <Fade delay={1000} cascade damping={0.7}>
+        <Fade delay={1000} cascade damping={0.7} triggerOnce>
           <h2 className="text-3xl font-bold text-orange-500">
             Find Your Best Food{" "}
           </h2>

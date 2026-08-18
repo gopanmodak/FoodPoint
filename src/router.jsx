@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from './App';
-import Error from './Error';
+import App from "./App";
+import Error from "./Error";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -15,54 +15,53 @@ import Contact from "./pages/Contact";
 import CookiePolicy from "./pages/CookiePolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import AllBestFoodCard from "./pages/AllBestFoodCard";
 
-export const router = createBrowserRouter ([
+export const router = createBrowserRouter([
   {
-    path: '/',
-    element: <App/>,
+    path: "/",
+    element: <App />,
     children: [
       {
-        path: '/',
-        element: <Home/>
+        path: "/",
+        element: <Home />,
       },
-      {path: 'menu',
-        element: <Menu/>
-      },
-      {path: 'reservation',
-        element: <Reservation/>
-      },
-      {path: 'order',
-        element: <Order/>
-      },
-      {path: 'cart',
-        element: <Cart/>
+      { path: "menu", element: <Menu /> },
+      { path: "reservation", element: <Reservation /> },
+      { path: "order", element: <Order /> },
+      { path: "cart", element: <Cart /> },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoutes>
+            <Profile />{" "}
+          </PrivateRoutes>
+        ),
       },
       {
-        path: 'profile',
-        element: <PrivateRoutes><Profile/> </PrivateRoutes>
+        path: "login",
+        element: <Login />,
       },
       {
-        path: 'login',
-        element:<Login/>
+        path: "register",
+        element: <Register />,
       },
       {
-        path: 'register',
-        element:<Register/>
-      },{
-        path: 'about-us',
-        element: <AboutUs/>
-      },{
-        path: 'contact',
-        element: <Contact/>
+        path: "about-us",
+        element: <AboutUs />,
       },
-    {path: "cookie-policy",element: <CookiePolicy/>},
-    {path: "terms",element: <TermsOfUse/>},
-    {path: "privacy",element: <PrivacyPolicy/>}
-
-    ]
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      { path: "cookie-policy", element: <CookiePolicy /> },
+      { path: "terms", element: <TermsOfUse /> },
+      { path: "privacy", element: <PrivacyPolicy /> },
+      { path: "best-food", element: <AllBestFoodCard /> },
+    ],
   },
   {
-    path: '*',
-    element: <Error/>
-  }
-])
+    path: "*",
+    element: <Error />,
+  },
+]);
