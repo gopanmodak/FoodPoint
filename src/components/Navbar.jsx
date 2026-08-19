@@ -67,6 +67,19 @@ const Navbar = () => {
             >
               Cart
             </NavLink>
+
+            {user && (
+              <NavLink
+                to="/addfood"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[#F97316] border-b-2 border-[#6c6b77]"
+                    : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
+                }
+              >
+                Add Food
+              </NavLink>
+            )}
             {user && (
               <NavLink
                 to="/profile"

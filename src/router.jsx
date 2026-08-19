@@ -16,6 +16,8 @@ import CookiePolicy from "./pages/CookiePolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AllBestFoodCard from "./pages/AllBestFoodCard";
+import AddFood from "./pages/AddFood";
+import AllBestFoodCardDetails from "./components/AllBestFoodCardDetails";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ export const router = createBrowserRouter([
       { path: "reservation", element: <Reservation /> },
       { path: "order", element: <Order /> },
       { path: "cart", element: <Cart /> },
+      {
+        path: "addfood",
+        element: (
+          <PrivateRoutes>
+            <AddFood />{" "}
+          </PrivateRoutes>
+        ),
+      },
       {
         path: "profile",
         element: (
@@ -58,6 +68,7 @@ export const router = createBrowserRouter([
       { path: "terms", element: <TermsOfUse /> },
       { path: "privacy", element: <PrivacyPolicy /> },
       { path: "best-food", element: <AllBestFoodCard /> },
+      { path: "best-food/:id", element: <AllBestFoodCardDetails />,loader:({params})=>fetch(`http://localhost:3000/bestfood/${params.id}`) },
     ],
   },
   {

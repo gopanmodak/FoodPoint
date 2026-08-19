@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { Fade } from "react-awesome-reveal";
+import { useNavigate } from "react-router-dom";
 
 const AllBestFoodCard = () => {
+  const navigate = useNavigate();
   const { data = [], isLoading, error } = useQuery({
     queryKey: ["best-food"],
     queryFn: async () => {
@@ -50,7 +52,9 @@ const AllBestFoodCard = () => {
           <Fade direction="up" cascade damping={0.1} triggerOnce>
             <div
            
-            className="card bg-white h-120 shadow-gray-300 shadow-sm mb-10"
+            className="card bg-white h-120 shadow-gray-300 shadow-sm mb-10 cursor-pointer"
+            key={item.idMeal}
+            onClick={()=> navigate(`/best-food/${item._id}`)}
           >
             <figure>
               <img
