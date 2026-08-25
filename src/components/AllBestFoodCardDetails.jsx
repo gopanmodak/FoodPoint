@@ -6,7 +6,7 @@ const AllBestFoodCardDetails = () => {
   const food = useLoaderData();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50 py-10">
+    <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-amber-50 py-10">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* Back Button */}
@@ -26,7 +26,7 @@ const AllBestFoodCardDetails = () => {
             <img
               src={food.strMealThumb}
               alt={food.strMeal}
-              className="w-full h-[280px] sm:h-[400px] md:h-[500px] object-cover"
+              className="w-full h-70 sm:h-100 md:h-125 object-cover"
             />
 
             {/* Category */}

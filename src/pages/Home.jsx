@@ -1,5 +1,7 @@
 import { Fade, Slide } from "react-awesome-reveal";
-import { GiCirclingFish, GiMeal } from "react-icons/gi";
+import { GiCirclingFish, GiMeal  } from "react-icons/gi";
+import { GrDeliver } from "react-icons/gr";
+import { AiOutlineSafety  } from "react-icons/ai";
 import { PiBowlFoodLight, PiCoffeeFill } from "react-icons/pi";
 import { TbMeat } from "react-icons/tb";
 
@@ -11,9 +13,10 @@ import RestaurantImages_3 from "../assets/Restaurant-3.webp";
 import RestaurantImages_4 from "../assets/Restaurant-4.webp";
 import { LiaHotTubSolid } from "react-icons/lia";
 import { RiDrinksLine } from "react-icons/ri";
-import { MdOutlineFastfood } from "react-icons/md";
+import { MdOutlineFastfood, MdOutlineFoodBank } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaArrowRightLong } from 'react-icons/fa6';
 
 const Home = () => {
   const containerVariant = {
@@ -89,7 +92,7 @@ const Home = () => {
               to="/about-us"
               className="btn bg-orange-500 text-white hover:bg-white hover:text-orange-500 hover:shadow-amber-500"
             >
-              Read More
+             Meet FoodPoint <span><FaArrowRightLong /></span>
             </Link>
           </Fade>
         </div>
@@ -122,61 +125,9 @@ const Home = () => {
         <BestFood />
       </div>
 
-      {/* The Restaurant */}
 
-      <div className="my-30">
-        <div className="flex flex-col text-center items-center">
-          <h2 className="text-3xl font-bold uppercase text-orange-500 pb-5">
-            the restaurant
-          </h2>
-          <p className="text-gray-600 max-w-xl ">
-            Far beyond word‑mountains, blind texts dwell in Bookmarksgrove,
-            beside Semantics’ coast, embraced by language’s vast ocean, weaving
-            timeless meaning.
-          </p>
-        </div>
-        <Fade damping={0.5} cascade delay={1000}>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 mt-10">
-            {/* Left side image */}
-            <div className="col-span-3">
-              <img
-                src={RestaurantImages_1}
-                alt="Restaurant 1"
-                className="w-full h-148 object-cover rounded-lg"
-              />
-            </div>
 
-            {/* Middle stacked images */}
-            <div className="col-span-6 flex flex-col gap-5">
-              <div>
-                <img
-                  src={RestaurantImages_2}
-                  alt="Restaurant 2"
-                  className="w-full h-72 rounded-lg object-cover"
-                />
-              </div>
-              <div>
-                <img
-                  src={RestaurantImages_3}
-                  alt="Restaurant 3"
-                  className="w-full h-72 rounded-lg object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Right side image */}
-            <div className="col-span-3">
-              <img
-                src={RestaurantImages_4}
-                alt="Restaurant 4"
-                className="w-full object-cover h-148 rounded-lg"
-              />
-            </div>
-          </div>
-        </Fade>
-      </div>
-
-      {/* others services */}
+        {/* others services */}
       <div className="my-20 ">
         <h2 className="text-3xl text-orange-500 uppercase font-bold text-center mb-4">
           Other Services
@@ -188,7 +139,7 @@ const Home = () => {
 
         {/* 4card section */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 my-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 my-20 p-5"
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"
@@ -290,6 +241,93 @@ const Home = () => {
             </p>
           </motion.div>
         </motion.div>
+      </div>
+
+      {/* The Restaurant */}
+
+      <div className="my-30">
+        <div className="flex flex-col text-center items-center">
+          <h2 className="text-3xl font-bold uppercase text-orange-500 pb-5">
+            the restaurant
+          </h2>
+          <p className="text-gray-600 max-w-xl ">
+            Far beyond word‑mountains, blind texts dwell in Bookmarksgrove,
+            beside Semantics’ coast, embraced by language’s vast ocean, weaving
+            timeless meaning.
+          </p>
+        </div>
+        <Fade damping={0.5} cascade delay={1000}>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 mt-10">
+            {/* Left side image */}
+            <div className="col-span-3">
+              <img
+                src={RestaurantImages_1}
+                alt="Restaurant 1"
+                className="w-full h-148 object-cover rounded-lg"
+              />
+            </div>
+
+            {/* Middle stacked images */}
+            <div className="col-span-6 flex flex-col gap-5">
+              <div>
+                <img
+                  src={RestaurantImages_2}
+                  alt="Restaurant 2"
+                  className="w-full h-72 rounded-lg object-cover"
+                />
+              </div>
+              <div>
+                <img
+                  src={RestaurantImages_3}
+                  alt="Restaurant 3"
+                  className="w-full h-72 rounded-lg object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Right side image */}
+            <div className="col-span-3">
+              <img
+                src={RestaurantImages_4}
+                alt="Restaurant 4"
+                className="w-full object-cover h-148 rounded-lg"
+              />
+            </div>
+          </div>
+        </Fade>
+      </div>
+
+    
+
+
+
+      {/* more than meal */}
+
+      <div className="my-25 p-3">
+        <p className="uppercase text-orange-500 font-bold text-center mb-2">The FoodPoint difference</p>
+        <h2 className="text-3xl font-bold md:text-4xl text-center">More Than A Meal</h2>
+
+      <Fade triggerOnce direction="up" cascade damping={0.8} dummyClass="fade-up">
+          <div className="flex flex-col md:flex-row gap-10 mt-20">
+          <div className="flex flex-col gap-3 text-gray-400">
+            <p className="text-2xl text-orange-600"><GrDeliver/></p>
+            <p className="text-gray-800 font-semibold">Fast, reliable delivery</p>
+            <p className="max-w-md">Real-time tracking and thoughtful drivers get your food there right.</p>
+          </div>
+
+          <div className="flex flex-col gap-3 text-gray-400">
+            <p className="text-2xl text-orange-600"><AiOutlineSafety  /></p>
+            <p className="text-gray-800 font-semibold">Quality you can taste</p>
+            <p className="max-w-md">We partner with the best local kitchens and source fresh ingredients.</p>
+          </div>
+
+          <div className="flex flex-col gap-3 text-gray-400">
+            <p className="text-2xl text-orange-600"><MdOutlineFoodBank /></p>
+            <p className="text-gray-800 font-semibold">Made with care</p>
+            <p className="max-w-md">Every order is packed with attention, from their kitchen to your table.</p>
+          </div>
+        </div>
+      </Fade>
       </div>
 
       {/* Home footer */}

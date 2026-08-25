@@ -1,82 +1,109 @@
-import { Fade } from "react-awesome-reveal";
-import { FaUtensils, FaLeaf, FaHeart } from "react-icons/fa"; // বা FontAwesome CDN
-import { Link } from 'react-router-dom';
+import { Fade, Slide } from "react-awesome-reveal";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+  const navigate = useNavigate();
   return (
-    <div className="bg-linear-to-b from-orange-50 to-white py-10 px-4 md:px-8">
-      
-      <div className="max-w-5xl mx-auto text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-orange-600 inline-block border-b-4 border-orange-400 pb-2">
-          About Us
-        </h1>
-        <p className="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">
-          Discover the story behind <span className="font-bold text-orange-500">FoodPoint</span> – where every dish tells a tale.
-        </p>
+    <div className="md:my-15 p-5">
+      {/* about us header */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="flex flex-col justify-center space-y-5">
+          <p className="text-orange-400 uppercase font-bold">
+            Made for your table
+          </p>
+          <h1 className="text-3xl md:text-5xl text-gray-800 font-semibold">
+            We believe food{" "}
+            <span className="text-orange-500 italic">is a feeling.</span>
+          </h1>
+          <p className="text-gray-500 max-w-md">
+            FoodPoint brings the best of your neighborhood together, so every
+            meal can feel a little more special.
+          </p>
+        </div>
+        <Slide triggerOnce>
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85"
+              alt="about us images"
+              className="rounded-2xl"
+            />
+          </div>
+        </Slide>
       </div>
 
-      
-      <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {/* card 1 */}
-        <Fade direction="left" delay={100}>
+      {/* Our Story */}
 
-          <div className="bg-white rounded-2xl shadow-lg p-6 transition-transform hover:scale-105 duration-300 border-l-8 border-orange-400">
-          <div className="flex items-center gap-3 mb-4">
-            <FaUtensils className="text-orange-500 text-3xl" />
-            <h2 className="text-xl font-semibold text-gray-800">Our Passion</h2>
-          </div>
-          <p className="text-gray-600 leading-relaxed">
-            At <span className="text-orange-500 font-bold">FoodPoint</span>, food is not just a necessity — it is an
-            experience, a celebration of flavors, and a way to bring people
-            together. Our journey began with a passion for authentic cooking and a
-            dream to create a place where every guest feels at home.
+      <Fade triggerOnce damping={0.5} cascade direction="up" duration={1000}>
+        <div className="my-20 flex flex-col justify-center space-y-5 items-center">
+          <p className="text-orange-500 uppercase font-bold">Our story</p>
+          <h2 className="text-4xl max-w-3xl font-semibold text-center">
+            Good meals have a way of becoming good memories.
+          </h2>
+          <p className="text-gray-700 max-w-3xl text-center">
+            We started FoodPoint because we wanted a better way to discover the
+            independent restaurants that make our city worth eating in. Our team
+            works with local kitchens, makers, and couriers to make ordering
+            feel personal again.
           </p>
-        </div>
-        </Fade>
 
-        {/* card 3 */}
-       <Fade direction="down" delay={200}>
-         <div className="bg-white rounded-2xl shadow-lg p-6 transition-transform hover:scale-105 duration-300 border-l-8 border-orange-400">
-          <div className="flex items-center gap-3 mb-4">
-            <FaLeaf className="text-green-500 text-3xl" />
-            <h2 className="text-xl font-semibold text-gray-800">Fresh & Creative</h2>
+          <div className="flex gap-15 mt-10">
+            <div className="flex flex-col items-center">
+              <h1 className="font-bold text-3xl text-orange-500">350+</h1>
+              <p className="text-gray-600 text-md">Local kitchens</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="font-bold text-3xl text-orange-500">4.9</h1>
+              <p className="text-gray-600 text-md">Average rating</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="font-bold text-3xl text-orange-500 whitespace-nowrap">
+                28 min
+              </h1>
+              <p className="text-gray-600 text-md">Average delivery</p>
+            </div>
           </div>
-          <p className="text-gray-600 leading-relaxed">
-            We take pride in sourcing the finest ingredients, blending traditional
-            recipes with modern creativity, and presenting meals that delight both
-            the eyes and the taste buds. Whether it’s a cozy family dinner, a
-            romantic evening, or a gathering with friends, our restaurant offers
-            the perfect ambience.
-          </p>
         </div>
-       </Fade>
+      </Fade>
 
-        {/* card 3 */}
-        <Fade direction="right" delay={300}>
-          <div className="bg-white rounded-2xl shadow-lg p-6 transition-transform hover:scale-105 duration-300 border-l-8 border-orange-400">
-          <div className="flex items-center gap-3 mb-4">
-            <FaHeart className="text-red-500 text-3xl" />
-            <h2 className="text-xl font-semibold text-gray-800">Memorable Moments</h2>
+      {/* About us footer */}
+
+      <Fade triggerOnce damping={0.5} cascade direction="up" duration={1000}>
+        <div className="bg-amber-300 grid grid-cols-1 md:grid-cols-2  gap-5 md:gap-10 p-10 rounded-2xl">
+          <div className="flex flex-col justify-center items-start md:px-30 ">
+            <p className="text-orange-500 uppercase font-bold text-center">
+              Our Mission
+            </p>
+            <h2 className="text-4xl font-semibold">Make every meal</h2>
+            <h2 className="text-4xl font-semibold text-orange-500">
+              worth sharing.
+            </h2>
           </div>
-          <p className="text-gray-600 leading-relaxed">
-            Our specialties range from signature local dishes to international
-            favorites, each prepared by skilled chefs who believe in the art of
-            cooking. Beyond food, we promise hospitality that makes every visit
-            memorable. Because at <span className="text-orange-500 font-bold">FoodPoint</span>, we don’t just serve
-            meals — we create moments worth cherishing.
-          </p>
-        </div>
-        </Fade>
-      </div>
 
-      {/* কল-টু-অ্যাকশন */}
-      <div className="text-center mt-12">
-        <Link to='/reservation' className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-          Reserve a Table
-        </Link>
-        <Link to='/menu' className="ml-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-8 rounded-full shadow transition-all duration-300">
-          View Our Menu
-        </Link>
+          <div className="flex flex-col justify-center items-center">
+            <p className="text-gray-800 max-w-md leading-7">
+              We’re building a food platform that puts quality first — quality
+              ingredients, quality service, and quality time around the table.
+            </p>
+          </div>
+        </div>
+      </Fade>
+
+      <div className="mt-10 md:mt-30">
+        <h2 className="text-center text-3xl text-orange-500 font-bold">
+          Ready to find your next favorite?
+        </h2>
+        <div className="flex justify-center items-center mt-5">
+          <button
+            className="btn btn-neutral hover:bg-orange-500 hover:transform-stroke flex justify-center items-center gap-3"
+            onClick={() => navigate("/menu")}
+          >
+            Explore the menu{" "}
+            <span>
+              <FaArrowRightLong />
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );

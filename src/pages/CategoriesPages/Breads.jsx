@@ -1,0 +1,47 @@
+import { useQuery } from "@tanstack/react-query"
+import { Fade } from "react-awesome-reveal";
+import BreadsCard from "../../components/CategoriesPagesCard/BreadsCard";
+
+const Breads = () => {
+  const { data, isLoading, error} = useQuery({
+    queryKey: ['breads'],
+    queryFn: async () => {
+      const response = await fetch('http://localhost:3000/breads');
+      return await response.json();
+    }
+  })
+
+  if(error){
+    return (
+      <div className="flex justify-center items-center min-w-screen">
+        <p className="text-orange-600">Data Not Found</p>
+      </div>
+    )
+  }
+
+  if(isLoading){
+    return(
+        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center space-x-2 pt-15">
+          <div className="w-4 h-4 rounded-full animate-pulse bg-orange-600"></div>
+          <div className="w-4 h-4 rounded-full animate-pulse bg-orange-600"></div>
+          <div className="w-4 h-4 rounded-full animate-pulse bg-orange-600"></div>
+        </div>
+      </div>
+    )
+  }
+  return (
+    <div>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-5 p-5">
+        {data.map((breads)=> (
+          <Fade cascade damping={0.5} direction="up" triggerOnce key={breads._id}>
+            <BreadsCard breads={breads}/>
+          </Fade>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default Breads

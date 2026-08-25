@@ -4,18 +4,29 @@ import { useContext, useState } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import { signOut } from "firebase/auth";
 import auth from "../auth/__firebaseinit";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { MdOutlineClose } from "react-icons/md";
+
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState(false);
 
   const { user } = useContext(authContext);
   return (
+
+    <>
     <div className="bg-[#FFF7ED]  backdrop-blur-lg shadow-lg fixed top-0 w-full z-50">
       <div className="flex justify-between items-center p-3 max-w-7xl mx-auto bg-[#FFF7ED] ">
         <div>
           <img src={mainlogo} alt="logo" className="max-w-28 object-cover" />
         </div>
 
-        <div>
+
+
+      
+
+        <div className="hidden md:block">
           <ul className="flex gap-5">
             <NavLink
               to="/"
@@ -38,6 +49,16 @@ const Navbar = () => {
               Menu
             </NavLink>
             <NavLink
+              to="/categories"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#F97316] border-b-2 border-[#6c6b77]"
+                  : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
+              }
+            >
+              Categories
+            </NavLink>
+            <NavLink
               to="/reservation"
               className={({ isActive }) =>
                 isActive
@@ -56,16 +77,6 @@ const Navbar = () => {
               }
             >
               Order
-            </NavLink>
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-[#F97316] border-b-2 border-[#6c6b77]"
-                  : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
-              }
-            >
-              Cart
             </NavLink>
 
             {user && (
@@ -169,8 +180,107 @@ const Navbar = () => {
             </Link>
           </div>
         )}
+        <div className="md:hidden px-8 text-4xl text-orange-700">
+          <button onClick={() => setMenu(!menu)} > {open ? <MdOutlineClose />:<RxHamburgerMenu /> }</button>
+        </div>
       </div>
+
+<div className="">
+        {menu && (
+          <div className="absolute top-full left-0 w-full bg-[#FFF7ED] shadow-lg md:hidden transition-all duration-300 ease-in-out origin-top">
+              <ul className=" flex flex-col gap-5 px-10 py-5">
+            <NavLink
+            onClick={() => setMenu(false)}
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#F97316] border-b-2 border-[#6c6b77]"
+                  : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+            onClick={() => setMenu(false)}
+              to="/menu"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#F97316] border-b-2 border-[#6c6b77]"
+                  : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
+              }
+            >
+              Menu
+            </NavLink>
+            <NavLink
+            onClick={() => setMenu(false)}
+              to="/categories"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#F97316] border-b-2 border-[#6c6b77]"
+                  : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
+              }
+            >
+              Categories
+            </NavLink>
+            <NavLink
+            onClick={() => setMenu(false)}
+              to="/reservation"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#F97316] border-b-2 border-[#6c6b77]"
+                  : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
+              }
+            >
+              Reservation
+            </NavLink>
+            <NavLink
+            onClick={() => setMenu(false)}
+              to="/order"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#F97316] border-b-2 border-[#6c6b77]"
+                  : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
+              }
+            >
+              Order
+            </NavLink>
+
+            {user && (
+              <NavLink
+              onClick={() => setMenu(false)}
+                to="/addfood"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[#F97316] border-b-2 border-[#6c6b77]"
+                    : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
+                }
+              >
+                Add Food
+              </NavLink>
+            )}
+            {user && (
+              <NavLink
+              onClick={() => setMenu(false)}
+                to="/profile"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[#F97316] border-b-2 border-[#6c6b77]"
+                    : "hover:text-[#12068e] hover:border-b-2 hover:border-[#6c6b77]"
+                }
+              >
+                Profile
+              </NavLink>
+            )}
+          </ul>
+          </div>
+        )}
+      </div>
+      
+
+        
     </div>
+    
+      </>
   );
 };
 
