@@ -6,7 +6,7 @@ const Breads = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["breads"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/breads");
+      const response = await fetch("https://foodpoint-backend-venk.onrender.com/breads");
       return await response.json();
     },
   });

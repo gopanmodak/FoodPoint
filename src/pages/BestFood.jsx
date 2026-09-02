@@ -8,7 +8,7 @@ const BestFood = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["best-food"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/bestfood");
+      const response = await fetch("https://foodpoint-backend-venk.onrender.com/bestfoods");
       return await response.json();
     },
   });
@@ -20,6 +20,9 @@ const BestFood = () => {
           <div className="w-4 h-4 rounded-full animate-pulse bg-orange-600"></div>
           <div className="w-4 h-4 rounded-full animate-pulse bg-orange-600"></div>
           <div className="w-4 h-4 rounded-full animate-pulse bg-orange-600"></div>
+        </div>
+        <div>
+          <p className="text-orange-400 text-center pt-5">Loading...</p>
         </div>
       </div>
     );
@@ -37,7 +40,7 @@ const BestFood = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-5 my-15">
         {data.slice(0,8).map((item) => (
            <Fade direction="up" cascade damping={0.3} triggerOnce> 
-          <BestFoodCard item={item} key={item.idMeal} />
+          <BestFoodCard item={item} key={item._id} />
           </Fade>
         ))}
       </div>

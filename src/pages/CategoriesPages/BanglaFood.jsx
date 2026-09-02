@@ -7,7 +7,7 @@ const BanglaFood = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["bangla-food"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/banglafood");
+      const response = await fetch("https://foodpoint-backend-venk.onrender.com/banglafoods");
       return await response.json();
     },
   });

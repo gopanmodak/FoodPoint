@@ -5,9 +5,9 @@ import BurgerCard from "../../components/CategoriesPagesCard/BurgerCard";
 
 const Burger = () => {
   const {data ,isLoading, error} = useQuery({
-    queryKey: ['best-foods'],
+    queryKey: ['burgers'],
     queryFn: async () => {
-      const response = await fetch('http://localhost:3000/burger')
+      const response = await fetch('https://foodpoint-backend-venk.onrender.com/burgers')
       return await response.json();
     }
   })

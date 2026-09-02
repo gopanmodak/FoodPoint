@@ -6,7 +6,7 @@ const BestFoods = () => {
   const {data ,isLoading, error} = useQuery({
     queryKey: ['best-foods'],
     queryFn: async () => {
-      const response = await fetch('http://localhost:3000/best-food')
+      const response = await fetch('https://foodpoint-backend-venk.onrender.com/bestfoods')
       return await response.json();
     }
   })

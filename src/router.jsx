@@ -87,7 +87,7 @@ export const router = createBrowserRouter([
         path: "best-food/:id",
         element: <AllBestFoodCardDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/bestfood/${params.id}`),
+          fetch(`https://foodpoint-backend-venk.onrender.com/bestfoods/${params.id}`),
       },
       { path: "faq", element: <FAQ /> },
       { path: "categories", element: <Categories /> },

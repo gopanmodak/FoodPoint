@@ -24,15 +24,15 @@ const AllBestFoodCardDetails = () => {
           {/* Image */}
           <div className="relative">
             <img
-              src={food.strMealThumb}
-              alt={food.strMeal}
+              src={food.img}
+              alt={food.name}
               className="w-full h-70 sm:h-100 md:h-125 object-cover"
             />
 
             {/* Category */}
             <div className="absolute top-5 left-5">
               <span className="px-4 py-2 rounded-full bg-orange-500 text-white text-sm font-semibold shadow-lg">
-                {food.strCategory}
+                {food.category}
               </span>
             </div>
           </div>

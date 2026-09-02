@@ -44,31 +44,15 @@ const Home = () => {
   return (
     <div className="p-3">
       {/*  Banner images */}
-      <div
-        className="hero min-h-screen -mt-40"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1612939675110-fe3a0129a024?q=80&w=2070&auto=format&fit=crop')",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="hero-overlay"></div>
+      <div>
+        <div className="relative">
+          <img src="https://images.unsplash.com/photo-1649067846117-2d71b76be1e0?q=80&w=1111&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="w-full h-132 object-cover rounded-2xl -mt-16" />
+        </div>
 
-        <div className="hero-content text-neutral-content text-start">
-          <div className="max-w-md flex flex-col gap-2">
-            <Slide triggerOnce>
-              <h1 className="mb-5 text-5xl font-bold">Delicious Recipes</h1>
-            </Slide>
+        <div className="absolute top-70 right-70 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-50">
+        <p className="text-xl font-bold">The Best Food Stations</p>
+        <h1 className="text-5xl font-bold w-sm">Where Food Meets Best Cuisine</h1>
 
-            <Fade delay={1000} cascade damping={0.1} triggerOnce>
-              <p className="mb-5 text-start">
-                inappropriate behavior is often laughed off as “boys will be
-                boys,” women face higher conduct standards especially in the
-                workplace. That’s why it’s crucial that, as women.
-              </p>
-              <button className="btn btn-primary">Check Our Menu</button>
-            </Fade>
-          </div>
         </div>
       </div>
 

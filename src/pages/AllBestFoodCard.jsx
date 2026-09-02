@@ -7,7 +7,7 @@ const AllBestFoodCard = () => {
   const { data = [], isLoading, error } = useQuery({
     queryKey: ["best-food"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/bestfood");
+      const response = await fetch("https://foodpoint-backend-venk.onrender.com/bestfoods");
 
       if (!response.ok) {
         throw new Error("Failed to fetch food data");
@@ -58,31 +58,31 @@ const AllBestFoodCard = () => {
           >
             <figure>
               <img
-                src={item.strMealThumb}
-                alt={item.strMeal}
+                src={item.img}
+                alt={item.name}
                 className="h-70 w-full object-cover"
               />
             </figure>
 
             <div className="card-body flex justify-between">
               <h2 className="card-title text-[#3B2416]">
-                {item.strMeal}
+                {item.name}
               </h2>
 
               <div className="flex justify-center items-center">
                 <p className="text-[#6B7280]">
-                  {item.strInstructions?.slice(0, 100) ||
+                  {item.dsc?.slice(0, 100) ||
                     "No description available"}
                 </p>
               </div>
 
               <div className="card-actions justify-end">
-                <div className="badge badge-outline badge-warning">
-                  {item.strCategory}
-                </div>
+               {/*  <div className="badge badge-outline badge-warning">
+                  {item.discount}
+                </div> */}
 
-                <div className="badge badge-outline badge-warning">
-                  {item.strCountry}
+                <div className="badge badge-outline badge-warning font-bold">
+                  {item.price}.00 Taka
                 </div>
               </div>
             </div>

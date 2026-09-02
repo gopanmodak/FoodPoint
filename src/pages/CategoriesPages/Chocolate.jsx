@@ -5,9 +5,9 @@ import ChocolateCard from "../../components/CategoriesPagesCard/ChocolateCard";
 
 const Chocolate = () => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["breads"],
+    queryKey: ["chocolates"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/chocolate");
+      const response = await fetch("https://foodpoint-backend-venk.onrender.com/chocolates");
       return await response.json();
     },
   });
