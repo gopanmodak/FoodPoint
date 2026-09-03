@@ -8,7 +8,7 @@ const Pizza = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["pizza"],
     queryFn: async () => {
-      const response = await fetch("https://foodpoint-backend-venk.onrender.com/pizzas");
+      const response = await fetch("https://foodpoint-backend-venk.onrender.com/pizza");
       return await response.json();
     },
   });

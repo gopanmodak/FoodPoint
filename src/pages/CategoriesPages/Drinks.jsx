@@ -38,7 +38,7 @@ const Drinks = () => {
         Freshly Baked Happiness
       </h2>
       <p className="text-center text-gray-600 mt-2 mb-5">
-        Discover our variety of chocolate, baked to perfection every day.
+        The first cup is for the guest, the second for enjoyment, the third for the sword.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-5 p-5">

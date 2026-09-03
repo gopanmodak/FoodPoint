@@ -1,7 +1,7 @@
 import { Fade, Slide } from "react-awesome-reveal";
-import { GiCirclingFish, GiMeal  } from "react-icons/gi";
+import { GiCirclingFish, GiMeal } from "react-icons/gi";
 import { GrDeliver } from "react-icons/gr";
-import { AiOutlineSafety  } from "react-icons/ai";
+import { AiOutlineSafety } from "react-icons/ai";
 import { PiBowlFoodLight, PiCoffeeFill } from "react-icons/pi";
 import { TbMeat } from "react-icons/tb";
 
@@ -16,7 +16,7 @@ import { RiDrinksLine } from "react-icons/ri";
 import { MdOutlineFastfood, MdOutlineFoodBank } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaArrowRightLong } from 'react-icons/fa6';
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Home = () => {
   const containerVariant = {
@@ -46,13 +46,30 @@ const Home = () => {
       {/*  Banner images */}
       <div>
         <div className="relative">
-          <img src="https://images.unsplash.com/photo-1649067846117-2d71b76be1e0?q=80&w=1111&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="w-full h-132 object-cover rounded-2xl -mt-16" />
-        </div>
+          <img
+            src="https://img.cdn4dd.com/cdn-cgi/image/fit=cover,format=auto,quality=60/https://cdn.doordash.com/managed/consumer/seo/home/hero_v3/hero_desktop.png"
+            alt="Delicious food hero banner"
+            className="w-full h-132 object-cover rounded-2xl -mt-16"
+          />
 
-        <div className="absolute top-70 right-70 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-50">
-        <p className="text-xl font-bold">The Best Food Stations</p>
-        <h1 className="text-5xl font-bold w-sm">Where Food Meets Best Cuisine</h1>
-
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-gray-100 space-y-3 text-center lg:text-start p-3">
+            <Fade triggerOnce direction="up" cascade delay={0.8}>
+              <p className="text-xl font-bold ">The Best Food Stations</p>
+              <h1 className="text-3xl lg:text-5xl font-bold italic ">
+                Where Food Meets{" "}
+                <span className="text-[#080420f3]">Best Passion</span>
+              </h1>
+              <p className="text-base lg:text-lg w-sm md:w-lg mx-auto lg:mx-0 p-3">
+                Enjoy your favorite dishes from the comfort of your home.
+                Delicious food at your doorstep.
+              </p>
+              <div>
+                <button className="px-8 py-3 bg-white text-orange-500 font-semibold rounded-full shadow-lg hover:bg-orange-500 hover:text-white hover:shadow-orange-500/40 transition-all duration-300">
+                  View Menu
+                </button>
+              </div>
+            </Fade>
+          </div>
         </div>
       </div>
 
@@ -76,7 +93,10 @@ const Home = () => {
               to="/about-us"
               className="btn bg-orange-500 text-white hover:bg-white hover:text-orange-500 hover:shadow-amber-500"
             >
-             Meet FoodPoint <span><FaArrowRightLong /></span>
+              Meet FoodPoint{" "}
+              <span>
+                <FaArrowRightLong />
+              </span>
             </Link>
           </Fade>
         </div>
@@ -110,8 +130,23 @@ const Home = () => {
       </div>
 
 
+      {/* Offers */}
 
-        {/* others services */}
+      <div className="grid grid-cols-1 md:grid-cols-2 my-20">
+        <div className=" bg-orange-100 p-10  md:rounded-l-lg flex flex-col justify-center items-start gap-3">
+          <p className="uppercase text-orange-500 font-bold">Tonight only</p>
+          <p className="text-3xl font-bold text-orange-500">20% Off Your First Order</p>
+          <p>Try something new on us. Use code <strong className="text-orange-500">WELCOME20</strong> at checkout.</p>
+          <button className="btn bg-orange-500 text-white hover:bg-white hover:text-orange-500 hover:shadow-amber-500 flex items-center">
+            Explore Now <span> <FaArrowRightLong /></span>
+          </button>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=85" loading="lazy" alt="offer-img" className=" md:rounded-r-lg" />
+        </div>
+      </div>
+
+      {/* others services */}
       <div className="my-20 ">
         <h2 className="text-3xl text-orange-500 uppercase font-bold text-center mb-4">
           Other Services
@@ -281,37 +316,62 @@ const Home = () => {
         </Fade>
       </div>
 
-    
-
-
-
       {/* more than meal */}
 
       <div className="my-25 p-3">
-        <p className="uppercase text-orange-500 font-bold text-center mb-2">The FoodPoint difference</p>
-        <h2 className="text-3xl font-bold md:text-4xl text-center">More Than A Meal</h2>
+        <p className="uppercase text-orange-500 font-bold text-center mb-2">
+          The FoodPoint difference
+        </p>
+        <h2 className="text-3xl font-bold md:text-4xl text-center">
+          More Than A Meal
+        </h2>
 
-      <Fade triggerOnce direction="up" cascade damping={0.8} dummyClass="fade-up">
+        <Fade
+          triggerOnce
+          direction="up"
+          cascade
+          damping={0.8}
+          dummyClass="fade-up"
+        >
           <div className="flex flex-col md:flex-row gap-10 mt-20">
-          <div className="flex flex-col gap-3 text-gray-400">
-            <p className="text-2xl text-orange-600"><GrDeliver/></p>
-            <p className="text-gray-800 font-semibold">Fast, reliable delivery</p>
-            <p className="max-w-md">Real-time tracking and thoughtful drivers get your food there right.</p>
-          </div>
+            <div className="flex flex-col gap-3 text-gray-400">
+              <p className="text-2xl text-orange-600">
+                <GrDeliver />
+              </p>
+              <p className="text-gray-800 font-semibold">
+                Fast, reliable delivery
+              </p>
+              <p className="max-w-md">
+                Real-time tracking and thoughtful drivers get your food there
+                right.
+              </p>
+            </div>
 
-          <div className="flex flex-col gap-3 text-gray-400">
-            <p className="text-2xl text-orange-600"><AiOutlineSafety  /></p>
-            <p className="text-gray-800 font-semibold">Quality you can taste</p>
-            <p className="max-w-md">We partner with the best local kitchens and source fresh ingredients.</p>
-          </div>
+            <div className="flex flex-col gap-3 text-gray-400">
+              <p className="text-2xl text-orange-600">
+                <AiOutlineSafety />
+              </p>
+              <p className="text-gray-800 font-semibold">
+                Quality you can taste
+              </p>
+              <p className="max-w-md">
+                We partner with the best local kitchens and source fresh
+                ingredients.
+              </p>
+            </div>
 
-          <div className="flex flex-col gap-3 text-gray-400">
-            <p className="text-2xl text-orange-600"><MdOutlineFoodBank /></p>
-            <p className="text-gray-800 font-semibold">Made with care</p>
-            <p className="max-w-md">Every order is packed with attention, from their kitchen to your table.</p>
+            <div className="flex flex-col gap-3 text-gray-400">
+              <p className="text-2xl text-orange-600">
+                <MdOutlineFoodBank />
+              </p>
+              <p className="text-gray-800 font-semibold">Made with care</p>
+              <p className="max-w-md">
+                Every order is packed with attention, from their kitchen to your
+                table.
+              </p>
+            </div>
           </div>
-        </div>
-      </Fade>
+        </Fade>
       </div>
 
       {/* Home footer */}
@@ -337,6 +397,13 @@ const Home = () => {
           </Fade>
         </div>
       </section>
+
+
+      {/* Shop Home last Footer */}
+
+   {/*    <section>
+
+      </section> */}
     </div>
   );
 };
