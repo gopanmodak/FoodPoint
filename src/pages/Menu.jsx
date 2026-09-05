@@ -44,10 +44,10 @@ const Menu = () => {
       </div>
 
 
-      <div>
+      <div className="mb-10">
 
-        {data.map((menuItem) => (
-          <MenuCard key={menuItem._id} menuItem={menuItem} />
+        {data.map((menuItem, index) => (
+          <MenuCard key={menuItem._id} menuItem={menuItem} index={index} />
         ))}
       </div>
     </div>
