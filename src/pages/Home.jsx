@@ -17,6 +17,7 @@ import { MdOutlineFastfood, MdOutlineFoodBank } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
+import DiscoverTest from "../components/DiscoverTest";
 
 const Home = () => {
   const containerVariant = {
@@ -26,7 +27,7 @@ const Home = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.5,
+        staggerChildren: 0.3,
       },
     },
   };
@@ -34,11 +35,16 @@ const Home = () => {
   const itemVariant = {
     hidden: {
       opacity: 0,
-      y: 100,
+      y: 30,
     },
     visible: {
       opacity: 1,
       y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 15,
+      },
     },
   };
   return (
@@ -75,7 +81,7 @@ const Home = () => {
 
       {/* about our story */}
 
-      <div className="grid grid-cols-2 gap-10 my-40">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-40">
         <div className="flex flex-col justify-center items-start gap-5">
           <Fade delay={1000} cascade damping={0.5} triggerOnce>
             <h2 className="text-3xl font-bold text-orange-500 uppercase">
@@ -111,6 +117,9 @@ const Home = () => {
           </Slide>
         </div>
       </div>
+
+
+     
 
       {/*    find your food */}
 
@@ -162,14 +171,14 @@ const Home = () => {
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <motion.div className="flex flex-col gap-3" variants={itemVariant}>
             <span className="bg-orange-500 h-20 w-20 rounded-full flex text-white text-4xl justify-center items-center">
               {" "}
               <GiMeal />{" "}
             </span>
-            <h3 className="text-orange-500 text-2xl">Enjoy Eating</h3>
+            <h3 className="text-orange-500 text-xl md:text-2xl">Enjoy Eating</h3>
             <p className="text-start text-gray-500">
               A gentle stream flows softly, weaving joy, flavor, and warmth into
               every shared bite together.
@@ -181,7 +190,7 @@ const Home = () => {
               {" "}
               <GiCirclingFish />{" "}
             </span>
-            <h3 className="text-orange-500 text-2xl">Fresh Sea Foods</h3>
+            <h3 className="text-orange-500 text-xl md:text-2xl">Fresh Sea Foods</h3>
             <p className="text-start text-gray-500 ">
               Ocean waves whisper freshness, carrying taste from deep waters,
               delivering nature’s gift to every shore.
@@ -193,7 +202,7 @@ const Home = () => {
               {" "}
               <PiCoffeeFill />{" "}
             </span>
-            <h3 className="text-orange-500 text-2xl">Cup of Coffees</h3>
+            <h3 className="text-orange-500 text-xl md:text-2xl">Cup of Coffees</h3>
             <p className="text-start text-gray-500">
               Morning rivers pour warmth, aroma rises gently, each sip awakens
               senses, weaving comfort and joy.
@@ -205,7 +214,7 @@ const Home = () => {
               {" "}
               <TbMeat />{" "}
             </span>
-            <h3 className="text-orange-500 text-2xl">Meat Eaters</h3>
+            <h3 className="text-orange-500 text-xl md:text-2xl">Meat Eaters</h3>
             <p className="text-start text-gray-500">
               A rustic brook delivers flavor, carrying strength and tradition,
               weaving hearty delights into every feast.
@@ -217,7 +226,7 @@ const Home = () => {
               {" "}
               <LiaHotTubSolid />{" "}
             </span>
-            <h3 className="text-orange-500 text-2xl">Free Hot Soup</h3>
+            <h3 className="text-orange-500 text-xl md:text-2xl">Free Hot Soup</h3>
             <p className="text-start text-gray-500">
               Warm, comforting soup served fresh, crafted with love to bring
               flavor, joy, and nourishment to every guest.
@@ -229,8 +238,8 @@ const Home = () => {
               {" "}
               <RiDrinksLine />{" "}
             </span>
-            <h3 className="text-orange-500 text-2xl">Drinks & Beverages</h3>
-            <p className="text-start text-gray-500">
+            <h3 className="text-orange-500 text-xl md:text-2xl">Drinks & Beverages</h3>
+            <p className="text-start  text-gray-500">
               Refreshing drinks and crafted beverages, blending taste and style
               to keep you energized, hydrated, and delighted always.
             </p>
@@ -315,6 +324,9 @@ const Home = () => {
           </div>
         </Fade>
       </div>
+
+       {/* discover your test */}
+      <DiscoverTest/>
 
       {/* more than meal */}
 

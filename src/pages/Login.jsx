@@ -1,8 +1,9 @@
+import { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../assets/Login-svg.svg";
-import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
-import toast from "react-hot-toast";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 const inputClass =
   "w-full px-4 py-3 bg-orange-50/40 border border-orange-100 rounded-xl text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition duration-200";
@@ -16,7 +17,8 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const handleOnForm = (event) => {
+  const axiosInstance = useAxiosSecure();
+  const handleOnForm =  (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -24,7 +26,14 @@ const Login = () => {
 
     console.log({ email, password });
 
-    userLogin(email, password).then(() => {
+    userLogin(email, password)
+    const user= {email:email}
+    axiosInstance.post('/signin/jwt',user,{withCredentials:true})
+
+    
+    
+    .then(() => {
+    
       toast.success("Login Successfully");
       navigate(from, { replace: true });
       form.reset();
